@@ -8,13 +8,23 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   onChange: event =>
     dispatch(async () => {
+      const text = event.target.value;
       dispatch({
         type: "SEARCH_CHANGED",
-        text: event.target.value
+        text
       });
 
-      const data = await fetch("https://api.deezer.com/search/artist?q=eminem");
-      console.log(data);
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/search?${text}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.token}`
+          }
+        }
+      );
+      const body = await response.json();
+
+      console.log(body);
     })
 });
 
