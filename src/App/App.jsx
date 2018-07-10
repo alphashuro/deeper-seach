@@ -29,9 +29,10 @@ const OnlyPublicRoute = ({ loggedIn, component: Component, ...rest }) => {
   );
 };
 
-const App = ({ loggedIn }) => (
+const App = ({ loggedIn, logout }) => (
   <ConnectedRouter history={history}>
     <div>
+      <button onClick={logout}>Logout</button>
       <Switch>
         <PrivateRoute exact path="/" component={Search} loggedIn={loggedIn} />
         <OnlyPublicRoute path="/login" component={Login} loggedIn={loggedIn} />

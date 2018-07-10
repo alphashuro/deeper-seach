@@ -6,6 +6,7 @@
     "connected-react-router": "^4.3.0",
     "eslint-config-standard-react": "^6.0.0",
     "query-string": "^6.1.0",
+    "ramda": "^0.25.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",

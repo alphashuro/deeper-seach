@@ -5,4 +5,14 @@ const mapStateToProps = state => ({
   loggedIn: Boolean(state.token)
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => ({
+  logout: () =>
+    dispatch({
+      type: "LOGOUT"
+    })
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
