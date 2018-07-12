@@ -6,6 +6,7 @@ import { ConnectedRouter } from "connected-react-router";
 import { Redirect } from "react-router-dom";
 import Login, { Callback } from "../Login";
 import { history } from "../store";
+import { hot } from "react-hot-loader";
 
 const PrivateRoute = ({ loggedIn, component: Component, ...rest }) => {
   return (
@@ -46,4 +47,4 @@ const App = ({ loggedIn, logout }) => (
   </ConnectedRouter>
 );
 
-export default App;
+export default hot(module)(App);
