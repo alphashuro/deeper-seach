@@ -7,11 +7,12 @@ const Container = styled.div`
 
   img {
     position: absolute;
+    padding: 10px;
   }
 
   h3 {
     color: #0ff;
-    padding-left: 160px;
+    padding-left: 175px;
   }
 `;
 
@@ -45,7 +46,7 @@ export default ({ loading, album, tracks }) =>
   album && (
     <Container>
       <img src={album.cover} alt="Album Cover" height={150} width={150} />
-      <div style={{ marginLeft: "10px", width: "100%" }}>
+      <div style={{ marginLeft: "10px", width: "100%", marginTop: "20px" }}>
         <h3>{album.title}</h3>
         {loading ? (
           <Loader />
@@ -53,7 +54,7 @@ export default ({ loading, album, tracks }) =>
           <Table>
             <thead>
               <tr>
-                <th style={{ width: "150px" }} />
+                <th style={{ width: "175px" }} />
                 <th>#</th>
                 <th>Title</th>
                 <th>Artist</th>
@@ -70,8 +71,14 @@ export default ({ loading, album, tracks }) =>
                   </td>
                   <td>{track.title}</td>
                   <td>{track.artist.name}</td>
-                  <td>{track.duration}</td>
-                  <td>{album.release_date}</td>
+                  <td>
+                    {Math.floor(track.duration / 60)}:{Math.floor(
+                      track.duration % 60
+                    )}
+                  </td>
+                  <td style={{ paddingLeft: "15px" }}>
+                    {album.release_date.split("-")[0]}
+                  </td>
                 </tr>
               ))}
             </tbody>
