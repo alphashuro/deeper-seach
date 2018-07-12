@@ -5,18 +5,17 @@ export default (state, action) => {
   const mergeState = merge(state);
 
   switch (action.type) {
-    case types.TEXT_CHANGE:
-      return mergeState({ text: action.text });
     case types.FETCH_ARTISTS_REQUEST:
-      return mergeState({ artists: { loading: true } });
+      return mergeState({ loading: true });
     case types.FETCH_ARTISTS_SUCCESS:
       return mergeState({
-        artists: { loading: false, data: action.artists }
+        loading: false,
+        data: action.artists
       });
     case types.FETCH_ARTISTS_FAILURE:
-      return mergeState({ artists: { loading: false, error: action.message } });
+      return mergeState({ loading: false, error: action.message });
     case types.SELECT_ARTIST:
-      return mergeState({ artist: action.artist });
+      return mergeState({ selected: action.artist });
     default:
       return state;
   }

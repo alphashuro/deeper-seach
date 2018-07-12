@@ -1,32 +1,36 @@
 import loginReducer from "./Login/container/reducer";
-import searchReducer from "./Search/container/reducer";
+import deezerSearchReducer from "./DeezerSearch/reducer";
 
 const initialState = {
   auth: {
     loading: false,
     token: ""
   },
-  search: {
+  deezer: {
     text: "",
     artists: {
       loading: false,
-      data: []
+      data: [],
+      selected: null,
+      error: null
     },
-    artist: null,
     albums: {
       loading: false,
-      data: []
+      data: [],
+      selected: null,
+      error: null
     },
-    album: {
+    albumDetail: {
       loading: false,
-      data: []
+      data: {},
+      error: null
     }
   }
 };
 
 const appReducer = (state = initialState, action) => ({
   auth: loginReducer(state.auth, action),
-  search: searchReducer(state.search, action)
+  deezer: deezerSearchReducer(state.deezer, action)
 });
 
 export default appReducer;

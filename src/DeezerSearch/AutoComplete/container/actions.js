@@ -1,15 +1,9 @@
 export const types = {
-  TEXT_CHANGE: "TEXT_CHANGE",
   FETCH_ARTISTS_REQUEST: "FETCH_ARTISTS_REQUEST",
-  FETCH_ARTISTS_SUCCESS: "FETCH_ARTISTS_COMPLETE",
+  FETCH_ARTISTS_SUCCESS: "FETCH_ARTISTS_SUCCESS",
   FETCH_ARTISTS_FAILURE: "FETCH_ARTISTS_FAILURE",
   SELECT_ARTIST: "SELECT_ARTIST"
 };
-
-export const changeText = text => ({
-  type: types.TEXT_CHANGE,
-  text
-});
 
 export const fetchArtistsRequest = () => ({
   type: types.FETCH_ARTISTS_REQUEST
@@ -40,6 +34,10 @@ export const fetchArtists = text => async (dispatch, getState) => {
     });
 
     const results = await response.json();
+
+    if (results.error) {
+      return dispatch(fetchArtistsFailure(results.error.message));
+    }
 
     dispatch(fetchArtistsSuccess(results.data));
   } catch (error) {

@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Search from "../Search";
+import DeezerSearch from "../DeezerSearch";
 import { Switch, Route } from "react-router";
 import { ConnectedRouter } from "connected-react-router";
 import { Redirect } from "react-router-dom";
@@ -35,7 +35,12 @@ const App = ({ loggedIn, logout }) => (
     <div>
       <button onClick={logout}>Logout</button>
       <Switch>
-        <PrivateRoute exact path="/" component={Search} loggedIn={loggedIn} />
+        <PrivateRoute
+          exact
+          path="/"
+          component={DeezerSearch}
+          loggedIn={loggedIn}
+        />
         <OnlyPublicRoute path="/login" component={Login} loggedIn={loggedIn} />
         <OnlyPublicRoute
           path="/callback"
