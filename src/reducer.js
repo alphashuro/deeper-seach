@@ -2,10 +2,6 @@ import loginReducer from "./Login/container/reducer";
 import deezerSearchReducer from "./DeezerSearch/reducer";
 
 const initialState = {
-  auth: {
-    loading: false,
-    token: ""
-  },
   deezer: {
     text: "",
     artists: {
@@ -29,7 +25,6 @@ const initialState = {
 };
 
 const appReducer = (state = initialState, action) => ({
-  auth: loginReducer(state.auth, action),
   deezer: deezerSearchReducer(state.deezer, action)
 });
 
