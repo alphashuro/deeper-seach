@@ -1,5 +1,4 @@
-import loginReducer from "./Login/container/reducer";
-import deezerSearchReducer from "./DeezerSearch/reducer";
+import appReducer from "./App/reducer";
 
 const initialState = {
   deezer: {
@@ -16,16 +15,14 @@ const initialState = {
       selected: null,
       error: null
     },
-    albumDetail: {
+    tracks: {
       loading: false,
-      data: {},
+      data: [],
       error: null
     }
   }
 };
 
-const appReducer = (state = initialState, action) => ({
-  deezer: deezerSearchReducer(state.deezer, action)
+export default (state = initialState, action) => ({
+  deezer: appReducer(state.deezer, action)
 });
-
-export default appReducer;

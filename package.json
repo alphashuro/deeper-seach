@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "connected-react-router": "^4.3.0",
     "eslint-config-standard-react": "^6.0.0",
     "query-string": "^6.1.0",
     "ramda": "^0.25.0",
