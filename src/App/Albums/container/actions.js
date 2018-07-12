@@ -5,21 +5,15 @@ export const types = {
   SELECT_ALBUM: "SELECT_ALBUM"
 };
 
-export const fetchAlbums = id => async (dispatch, getState) => {
+export const fetchAlbums = id => async dispatch => {
   dispatch({
     type: types.FETCH_ALBUMS_REQUEST
   });
 
-  const state = getState();
-  const token = state.auth.token;
-  const backend = process.env.REACT_APP_BACKEND_URL;
-
   try {
-    const response = await fetch(`${backend}/${id}/albums`, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
+    const response = await fetch(
+      `https://cors-anywhere.herokuapp.com/http://api.deezer.com/artist/${id}/albums`
+    );
 
     const results = await response.json();
 
@@ -34,3 +28,8 @@ export const fetchAlbums = id => async (dispatch, getState) => {
     });
   }
 };
+
+export const selectAlbum = album => ({
+  type: types.SELECT_ALBUM,
+  album
+});

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Albums from "../Albums";
-import { fetchAlbums } from "./actions";
+import { selectAlbum, fetchAlbums } from "./actions";
 
 class AlbumsContainer extends Component {
   componentDidUpdate(prevProps) {
@@ -27,11 +27,13 @@ const mapStateToProps = ({ deezer }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchAlbums: id => dispatch(fetchAlbums(id))
+  fetchAlbums: id => dispatch(fetchAlbums(id)),
+  selectAlbum: album => dispatch(selectAlbum(album))
 });
 
 const mergeProps = (stateProps, dispatchProps) => ({
   ...stateProps,
+  ...dispatchProps,
   fetchAlbums: () => dispatchProps.fetchAlbums(stateProps.artist.id)
 });
 

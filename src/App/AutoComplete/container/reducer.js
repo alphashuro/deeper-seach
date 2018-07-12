@@ -6,7 +6,7 @@ export default (state, action) => {
 
   switch (action.type) {
     case types.FETCH_ARTISTS_REQUEST:
-      return mergeState({ loading: true });
+      return mergeState({ loading: true, error: "" });
     case types.FETCH_ARTISTS_SUCCESS:
       return mergeState({
         loading: false,
