@@ -32,7 +32,7 @@ export const fetchArtists = text => async (dispatch, getState) => {
     const token = state.auth.token;
     const backend = process.env.REACT_APP_BACKEND_URL;
 
-    const response = await fetch(`${backend}/search?${text}`, {
+    const response = await fetch(`${backend}/search?q=${text}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

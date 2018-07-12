@@ -2,7 +2,7 @@ import React from "react";
 
 const Loader = () => <p>Loading...</p>;
 
-const AutoComplete = ({ artists, onArtistClick }) => (
+const AutoComplete = ({ artists = [], onArtistClick }) => (
   <ul>
     {artists.map(artist => (
       <li key={artist.id}>
