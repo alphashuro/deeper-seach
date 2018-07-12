@@ -26,8 +26,27 @@ const StyledTooltip = styled.div`
   }
 `;
 
+const List = styled.ul`
+  list-style-type: none;
+  padding: 0px;
+  margin-top: 14px;
+`;
+
+const Item = styled.li`
+  padding: 13px;
+  padding-left: 25px;
+  border-bottom: 2px solid rgb(28, 28, 28);
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-right: 25px;
+
+  &:hover {
+    color: #ccc;
+  }
+`;
+
 const AutoComplete = ({ loading, artists = [], selectArtist, error }) => {
-  if (error) return error;
+  if (error) return null;
 
   if (!loading && !artists.length) return null;
 
@@ -38,13 +57,13 @@ const AutoComplete = ({ loading, artists = [], selectArtist, error }) => {
       ) : (
         <React.Fragment>
           <p>Search results</p>
-          <ul>
+          <List>
             {artists.map(artist => (
-              <li key={artist.id}>
-                <a onClick={() => selectArtist(artist)}>{artist.name}</a>
-              </li>
+              <Item key={artist.id} onClick={() => selectArtist(artist)}>
+                {artist.name}
+              </Item>
             ))}
-          </ul>
+          </List>
         </React.Fragment>
       )}
     </StyledTooltip>

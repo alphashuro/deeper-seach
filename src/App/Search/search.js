@@ -27,6 +27,12 @@ const StyledButton = styled.button`
   padding: 19px 33px;
   text-transform: uppercase;
   border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #0ffc;
+  }
 `;
 
 const SearchContainer = styled.div`
