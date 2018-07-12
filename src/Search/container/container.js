@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Search from "../search";
-import { changeText, fetchArtists } from "./actions";
+import { changeText, fetchArtists, selectArtist } from "./actions";
 
 const mapStateToProps = state => ({
   text: state.search.text,
@@ -15,7 +15,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(changeText(text));
 
     dispatch(fetchArtists(text));
-  }
+  },
+  artistClickHandler: artist => () => dispatch(selectArtist(artist))
 });
 
 export default connect(

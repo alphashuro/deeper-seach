@@ -2,7 +2,8 @@ export const types = {
   TEXT_CHANGE: "TEXT_CHANGE",
   FETCH_ARTISTS_REQUEST: "FETCH_ARTISTS_REQUEST",
   FETCH_ARTISTS_SUCCESS: "FETCH_ARTISTS_COMPLETE",
-  FETCH_ARTISTS_FAILURE: "FETCH_ARTISTS_FAILURE"
+  FETCH_ARTISTS_FAILURE: "FETCH_ARTISTS_FAILURE",
+  SELECT_ARTIST: "SELECT_ARTIST"
 };
 
 export const changeText = text => ({
@@ -45,3 +46,8 @@ export const fetchArtists = text => async (dispatch, getState) => {
     dispatch(fetchArtistsFailure(error.message));
   }
 };
+
+export const selectArtist = artist => ({
+  type: types.SELECT_ARTIST,
+  artist
+});

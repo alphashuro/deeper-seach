@@ -15,6 +15,8 @@ export default (state, action) => {
       });
     case types.FETCH_ARTISTS_FAILURE:
       return mergeState({ artists: { loading: false, error: action.message } });
+    case types.SELECT_ARTIST:
+      return mergeState({ artist: action.artist });
     default:
       return state;
   }
