@@ -8,16 +8,28 @@ export default ({ loading, album, tracks }) =>
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <ul>
-          {tracks.map(track => (
-            <li key={track.id}>
-              <p>{track.title}</p>
-              <p>{track.artist.name}</p>
-              <p>{track.duration}</p>
-              <p>{album.release_date}</p>
-            </li>
-          ))}
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Titlse</th>
+              <th>Artist</th>
+              <th>Time</th>
+              <th>Released</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tracks.map(track => (
+              <tr key={track.id}>
+                <td>{track.track_position}</td>
+                <td>{track.title}</td>
+                <td>{track.artist.name}</td>
+                <td>{track.duration}</td>
+                <td>{album.release_date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   );
