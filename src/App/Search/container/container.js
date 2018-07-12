@@ -4,7 +4,7 @@ import { changeText } from "./actions";
 import { fetchArtists } from "../../AutoComplete/container/actions";
 
 const mapStateToProps = state => ({
-  text: state.deezer.text
+  text: state
 });
 
 const mapDispatchToProps = dispatch => ({

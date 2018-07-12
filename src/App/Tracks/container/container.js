@@ -19,10 +19,10 @@ class AlbumsContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ deezer }) => ({
-  album: deezer.albums.selected,
-  tracks: deezer.tracks.data,
-  loading: deezer.tracks.loading
+const mapStateToProps = ({ albums, tracks }) => ({
+  album: albums.selected,
+  tracks: tracks.data,
+  loading: tracks.loading
 });
 
 const mapDispatchToProps = dispatch => ({

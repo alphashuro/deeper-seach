@@ -15,10 +15,10 @@ class AutoCompleteContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  text: state.deezer.text,
-  error: state.deezer.artists.error,
-  loading: state.deezer.artists.loading,
-  artists: state.deezer.artists.data
+  text: state.text,
+  error: state.artists.error,
+  loading: state.artists.loading,
+  artists: state.artists.data
 });
 
 const mapDispatchToProps = dispatch => ({

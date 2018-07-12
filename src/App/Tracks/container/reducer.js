@@ -1,7 +1,13 @@
 import { types } from "./actions";
 import { merge } from "ramda";
 
-export default (state, action) => {
+const initialState = {
+  loading: false,
+  data: [],
+  error: null
+};
+
+export default (state = initialState, action) => {
   const mergeState = merge(state);
 
   switch (action.type) {
