@@ -4,6 +4,7 @@ import Loader from "../Loader";
 
 const Container = styled.div`
   margin-top: 30px;
+  margin-bottom: 30px;
   color: #0ff;
 
   & .title {
@@ -16,20 +17,17 @@ const Container = styled.div`
 const List = styled.section`
   list-style-type: none;
   display: flex;
+  flex-wrap: nowrap;
   padding: 0;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow-x: auto;
 
-  .card {
-    display: inline-block;
-  }
-
-  .card::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     display: none;
   }
 `;
 
 const Item = styled.div`
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   width: 150px;
@@ -45,6 +43,10 @@ const Item = styled.div`
   &:hover > img {
     transform: scale(1.1);
   }
+
+  & > span {
+    text-align: center;
+  }
 `;
 
 export default ({ artist, loading, albums, selectAlbum }) =>
@@ -59,7 +61,12 @@ export default ({ artist, loading, albums, selectAlbum }) =>
           <List>
             {albums.map(album => (
               <Item key={album.id} onClick={() => selectAlbum(album)}>
-                <img src={album.cover} alt="Album Cover" />
+                <img
+                  height={150}
+                  width={150}
+                  src={album.cover}
+                  alt="Album Cover"
+                />
                 <span>{album.title}</span>
               </Item>
             ))}
