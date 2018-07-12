@@ -5,3 +5,9 @@ body {
   background: rgb(26, 26, 26);
   color: rgb(234, 234, 234);
 }
+
+body .root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
