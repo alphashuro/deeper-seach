@@ -20,6 +20,8 @@ export const fetchArtistsFailure = message => ({
 });
 
 export const fetchArtists = text => async (dispatch, getState) => {
+  if (!text) return;
+
   dispatch(fetchArtistsRequest());
 
   try {

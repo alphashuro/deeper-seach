@@ -18,7 +18,8 @@ const mapStateToProps = state => ({
   text: state.text,
   error: state.artists.error,
   loading: state.artists.loading,
-  artists: state.artists.data
+  artists: state.artists.data,
+  show: state.artists.show
 });
 
 const mapDispatchToProps = dispatch => ({
