@@ -46,7 +46,7 @@ export default ({ loading, album, tracks }) =>
   album && (
     <Container>
       <img src={album.cover} alt="Album Cover" height={150} width={150} />
-      <div style={{ marginLeft: "10px", width: "100%", marginTop: "20px" }}>
+      <div style={{ width: "100%", marginTop: "20px" }}>
         <h3>{album.title}</h3>
         {loading ? (
           <Loader />
@@ -72,9 +72,9 @@ export default ({ loading, album, tracks }) =>
                   <td>{track.title}</td>
                   <td>{track.artist.name}</td>
                   <td>
-                    {Math.floor(track.duration / 60)}:{Math.floor(
-                      track.duration % 60
-                    )}
+                    {Math.floor(track.duration / 60)}:{String(
+                      Math.floor(track.duration % 60)
+                    ).padStart(2, "0")}
                   </td>
                   <td style={{ paddingLeft: "15px" }}>
                     {album.release_date.split("-")[0]}
