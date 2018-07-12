@@ -1,6 +1,6 @@
 import React from "react";
 import Search from "./Search";
-import AutoComplete from "./AutoComplete";
+
 import Albums from "./Albums";
 import Tracks from "./Tracks";
 import { hot } from "react-hot-loader";
@@ -15,7 +15,6 @@ const StyledApp = styled.div`
 const App = () => (
   <StyledApp>
     <Search />
-    <AutoComplete />
     <Albums />
     <Tracks />
   </StyledApp>

@@ -1,14 +1,20 @@
-import React, { Fragment } from "react";
+import React from "react";
 import styled from "styled-components";
+import AutoComplete from "../AutoComplete";
+
+const InputContainer = styled.div`
+  width: 600px;
+`;
 
 const StyledInput = styled.input`
-  width: 500px;
+  width: 100%;
+  box-sizing: border-box;
   height: 20px;
   font-size: 1.3em;
   background-color: rgb(32, 32, 32);
   color: rgb(111, 111, 111);
   border: none;
-  padding: 20px;
+  padding: 30px;
 `;
 
 const StyledButton = styled.button`
@@ -23,14 +29,21 @@ const StyledButton = styled.button`
   border-radius: 2px;
 `;
 
+const SearchContainer = styled.div`
+  display: flex;
+`;
+
 export default ({ text = "", onTextChange, onSearchClick }) => (
-  <div>
-    <StyledInput
-      placeholder="Search here"
-      type="text"
-      value={text}
-      onChange={onTextChange}
-    />
+  <SearchContainer>
+    <InputContainer>
+      <StyledInput
+        placeholder="Search here"
+        type="text"
+        value={text}
+        onChange={onTextChange}
+      />
+      <AutoComplete />
+    </InputContainer>
     <StyledButton onClick={() => onSearchClick(text)}>Search</StyledButton>
-  </div>
+  </SearchContainer>
 );
