@@ -1,27 +1,32 @@
-const { without } = require("ramda");
+import loginReducer from "./Login/container/reducer";
+import searchReducer from "./Search/container/reducer";
 
-export default (state = {}, action) => {
-  switch (action.type) {
-    case "LOGIN_SUCCESS":
-      localStorage.setItem("token", action.token);
-
-      return {
-        ...state,
-        token: action.token
-      };
-
-    case "LOGOUT":
-      localStorage.removeItem("token");
-
-      return without("token")(state);
-
-    case "SEARCH_CHANGED":
-      return {
-        ...state,
-        search: action.tex
-      };
-
-    default:
-      return state;
+const initialState = {
+  auth: {
+    loading: false,
+    token: ""
+  },
+  search: {
+    text: "",
+    artists: {
+      loading: false,
+      data: []
+    },
+    artist: null,
+    albums: {
+      loading: false,
+      data: []
+    },
+    album: {
+      loading: false,
+      data: []
+    }
   }
 };
+
+const appReducer = (state = initialState, action) => ({
+  auth: loginReducer(state.auth, action),
+  search: searchReducer(state.search, action)
+});
+
+export default appReducer;

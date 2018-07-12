@@ -1,2 +1,2 @@
 export { default } from "./login";
-export { default as Callback } from "./callback";
+export { Callback } from "./container";
